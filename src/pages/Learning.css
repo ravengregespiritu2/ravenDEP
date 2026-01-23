@@ -1,0 +1,249 @@
+.learning {
+  min-height: 100vh;
+  padding: 6rem 1.5rem 3rem;
+  background: linear-gradient(135deg, #0f1419 0%, #1a1f3a 100%);
+}
+
+.learning-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.learning-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.learning-header h1 {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.learning-header p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.learning-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.learning-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.15);
+}
+
+.learning-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.learning-card h2 {
+  color: var(--text);
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.learning-status {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.learning-description {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.learning-resources {
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.learning-resources h3 {
+  color: var(--primary);
+  font-size: 0.95rem;
+  margin: 0 0 0.75rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.learning-resources ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.learning-resources li {
+  padding: 0.5rem 0;
+  color: var(--text);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.resource-dot {
+  color: var(--primary);
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.learning-progress {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 3px;
+}
+
+.progress-text {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  text-align: right;
+}
+
+.growth-mindset {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  border-radius: 16px;
+  padding: 3rem;
+}
+
+.growth-mindset h2 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 2.5rem;
+}
+
+.philosophy-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.philosophy-item {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.philosophy-item:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
+  transform: translateY(-5px);
+}
+
+.philosophy-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.philosophy-item h3 {
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.15rem;
+}
+
+.philosophy-item p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .learning {
+    padding: 4rem 1rem 2rem;
+  }
+
+  .learning-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .growth-mindset {
+    padding: 2rem;
+  }
+
+  .philosophy-items {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .learning {
+    padding: 3rem 1rem 1.5rem;
+  }
+
+  .learning-card {
+    padding: 1.5rem;
+  }
+
+  .learning-header-section {
+    flex-direction: column;
+  }
+
+  .learning-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .growth-mindset {
+    padding: 1.5rem;
+  }
+
+  .philosophy-item {
+    padding: 1.5rem;
+  }
+
+  .philosophy-icon {
+    font-size: 2rem;
+  }
+
+  .philosophy-item h3 {
+    font-size: 1rem;
+  }
+}
