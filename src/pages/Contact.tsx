@@ -10,6 +10,8 @@ const Contact: React.FC = () => {
   })
 
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -19,22 +21,40 @@ const Contact: React.FC = () => {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
-    // Send email using mailto
-    const emailSubject = `New Contact Form Submission from ${formData.name}`
-    const emailBody = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    const mailtoLink = `mailto:ravengregjespiritu@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
-    
-    window.location.href = mailtoLink
-    
-    // Show success message
-    setSubmitted(true)
-    setTimeout(() => {
-      setFormData({ name: '', email: '', message: '' })
-      setSubmitted(false)
-    }, 3000)
+    setLoading(true)
+    setError('')
+
+    try {
+      // Send to Formspree endpoint
+      const response = await fetch('https://formspree.io/f/xlgbwvzd', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+        setFormData({ name: '', email: '', message: '' })
+        setTimeout(() => {
+          setSubmitted(false)
+        }, 3000)
+      } else {
+        setError('Failed to send message. Please try again.')
+      }
+    } catch (err) {
+      setError('Error sending message. Please check your connection and try again.')
+      console.error('Form submission error:', err)
+    } finally {
+      setLoading(false)
+    }
   }
 
   const containerVariants = {
@@ -168,9 +188,21 @@ const Contact: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
+              disabled={loading}
             >
-              {submitted ? '✓ Message Sent!' : 'Send Message'}
+              {loading ? '⏳ Sending...' : submitted ? '✓ Message Sent!' : 'Send Message'}
             </motion.button>
+
+            {error && (
+              <motion.div
+                className="error-message"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                {error}
+              </motion.div>
+            )}
           </motion.form>
         </motion.div>
       </div>

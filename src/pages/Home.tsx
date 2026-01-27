@@ -47,8 +47,8 @@ const Home: React.FC = () => {
           >
             <div className="image-frame">
               <img 
-                src="/public/buriks.jpg" 
-                alt="Profile" 
+                src="/buriks.jpg" 
+                alt="Profile"
                 className="profile-image"
               />
             </div>
