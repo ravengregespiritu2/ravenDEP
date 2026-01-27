@@ -47,7 +47,7 @@ const Home: React.FC = () => {
           >
             <div className="image-frame">
               <img 
-                src="/buriks.jpg" 
+                src="/public/formal.png" 
                 alt="Profile"
                 className="profile-image"
               />
@@ -63,11 +63,11 @@ const Home: React.FC = () => {
           transition={{ delay: 0.6, duration: 0.8 }}
         >
           <div className="stat-item">
-            <span className="stat-number">10</span>
+            <span className="stat-number">5</span>
             <span className="stat-label">Years of<br />experience</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">21</span>
+            <span className="stat-number">10</span>
             <span className="stat-label">Projects<br />completed</span>
           </div>
           <div className="stat-item">
