@@ -58,6 +58,7 @@ const Navbar: React.FC = () => {
           >
             Contact
           </NavLink>
+          
         </div>
 
         <button className="navbar-toggle" onClick={toggleMenu}>
