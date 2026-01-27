@@ -119,17 +119,7 @@ const Contact: React.FC = () => {
               </motion.div>
             </div>
 
-            <div className="social-icons">
-              <motion.a href="#" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                GitHub
-              </motion.a>
-              <motion.a href="#" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                LinkedIn
-              </motion.a>
-              <motion.a href="#" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                Twitter
-              </motion.a>
-            </div>
+           
           </motion.div>
 
           <motion.form variants={itemVariants} className="contact-form" onSubmit={handleSubmit}>
