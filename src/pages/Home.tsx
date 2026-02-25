@@ -47,7 +47,7 @@ const Home: React.FC = () => {
           >
             <div className="image-frame">
               <img 
-                src="/formal.png" 
+                src="/buriks.JPG" 
                 alt="Profile"
                 className="profile-image"
               />
